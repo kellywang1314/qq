@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<script >
+ function getJsonFromUrlSearch(search){
+    var item;
+    var result={};
+    if(search.indexOf('&')<0){
+        item=search.split('=');
+        result[item[0]]=item[1];
+        return result;
+    }
+    var splitArray=search.split('&');
+    for (var i = 0; i < splitArray.length; i++) {
+        var obj = splitArray[i];
+        item=obj.split('=');
+        result[item[0]]=item[1];
+    }
+    return result;
+}
+var c=getJsonFromUrlSearch("a=1&b=2&c=3");
+console.log(c);
+
+
+
+</script>
+</body>
+</html>
